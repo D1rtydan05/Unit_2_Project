@@ -5,8 +5,8 @@
    Tutorial 10
    Case Problem 4
 
-   Author: 
-   Date:   
+   Author: Daniel Garcia
+   Date:   2-6-20
    
    Filename: vw_results.js
    
@@ -25,6 +25,16 @@
 */
 
 
+// the report variable
+var reportHTML = "<h1>" +raceTitle+ "</h1>"
+
+// unfinishes loop :(
+for(var i = 0; i < race.length; i++){
+var totalVotes = 0;
+reportHTML += "<table>"
+reportHTML += "<caption>" + race[i] + "</caption>"
+reportHTML += "<tr><th>Canidate</th><th>Votes</th></tr>"
+}
 
 
 
