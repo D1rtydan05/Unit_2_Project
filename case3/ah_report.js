@@ -28,21 +28,25 @@
       
 */
 
+//variable for the total and adds the current donations totals
 var donationTotal = 0;
 donors.forEach(calcSum);
 
+// HTML plugin
 var summaryTable = "<table>"
 summaryTable += "<tr><th>Donors</th><td>" +donors.length+ "</td></tr>"
 summaryTable += "<tr><th>Total Donations</th><td>$" +donationTotal.toLocaleString()+ "</td></tr>"
 summaryTable += "</table>"
 
+// shows da thing
 document.getElementById("donationSummary").innerHTML = summaryTable;
 
 
-
+//sorts the donators from highest to lowest
 var majorDonors = donors.filter(findMajorDonors)// parenthesis or no?
 majorDonors.sort(donorSortDescending);
 
+// another HTML plugin :P
 var donorTable = "<table>"
 donorTable += "<caption>Major Donors</caption>"
 donorTable += "<tr>"
@@ -51,6 +55,7 @@ donorTable += "<th>Date</th><th>Name</th><th>Address</th>"
 donorTable += "<th>Phone</th><th>E-mail</th>"
 donorTable += "</tr>"
 
+// finishes up the table and shows it
 majorDonors.forEach(writeDonorRow);
 donorTable += "</table>";
 document.getElementById("donorTable").innerHTML = donorTable;
@@ -59,7 +64,7 @@ document.getElementById("donorTable").innerHTML = donorTable;
 
 
 
-
+// given
 function calcSum(donorAmt) {
    donationTotal += donorAmt[9];
 }
