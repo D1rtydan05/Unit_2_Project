@@ -5,8 +5,8 @@
    Tutorial 10
    Case Problem 3
 
-   Author:  
-   Date:   
+   Author:  Daniel Garcia
+   Date:   2-5-20
    
    Filename: ah_report.js
    
@@ -28,9 +28,32 @@
       
 */
 
+var donationTotal = 0;
+donors.forEach(calcSum);
+
+var summaryTable = "<table>"
+summaryTable += "<tr><th>Donors</th><td>" +donors.length+ "</td></tr>"
+summaryTable += "<tr><th>Total Donations</th><td>$" +donationTotal.toLocaleString()+ "</td></tr>"
+summaryTable += "</table>"
+
+document.getElementById("donationSummary").innerHTML = summaryTable;
 
 
 
+var majorDonors = donors.filter(findMajorDonors)// parenthesis or no?
+majorDonors.sort(donorSortDescending);
+
+var donorTable = "<table>"
+donorTable += "<caption>Major Donors</caption>"
+donorTable += "<tr>"
+donorTable += "<th>Donation</th><th>Donor ID</th>"
+donorTable += "<th>Date</th><th>Name</th><th>Address</th>"
+donorTable += "<th>Phone</th><th>E-mail</th>"
+donorTable += "</tr>"
+
+majorDonors.forEach(writeDonorRow);
+donorTable += "</table>";
+document.getElementById("donorTable").innerHTML = donorTable;
 
 
 
